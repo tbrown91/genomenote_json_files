@@ -11,7 +11,7 @@
                         "type": "string"
                     },
                     "publication_type": {
-                        "type": "string"
+                        "type": "string TB: Could also be type software/workflow. Link to doi or url"
                     },
                     "authors": {
                         "type": "array",

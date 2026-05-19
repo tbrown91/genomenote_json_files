@@ -43,7 +43,10 @@
                         "longread_pacbio",
                         "hic_cifi",
                         "10x_chromium",
-                        "bionano"
+                        "bionano",
+			"wgs",
+			"rnaseq",
+			"isoseq_pacbio"
                     ],
                     "help": "Data type of the data"
                 },
@@ -68,12 +71,11 @@
                     "properties": {
                         "techonology": {
                             "enum": [
-                                "HIFI-CiFi",
-                                "HIFI-Arima2",
                                 "ONT",
                                 "PacBio",
                                 "10x Chromium",
-                                "Bionano"
+                                "Bionano",
+				"Illumina"
                             ],
                             "help": "Technology used for sequencing"
                         },

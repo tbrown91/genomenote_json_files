@@ -88,7 +88,7 @@
                         }
                     }
                 },
-                "merqury": {
+                "merqury TB: I suggest removing this from here and leaving/placing in the analysis schema": {
                     "type": "array",
                     "properties": {
                         "assembly_id": "string",
@@ -127,7 +127,7 @@
                         }
                     }
                 },
-                "busco": {
+                "busco TB: as above, leave this in the analysis schema only": {
                     "type": "array",
                     "properties": {
                         "lineages": {

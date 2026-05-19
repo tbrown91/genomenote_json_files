@@ -70,9 +70,9 @@
                                 "properties": {
                                     "qv_files": {
                                         "type": "array",
-                                        "help": "All *.qv files"
+                                        "help": "All *.qv files TB: More likely to want one QV value (float) per assembly and combined"
                                     },
-                                    "completeness_stats": "string",
+                                    "completeness_stats": "string TB: One completeness percentage per assembly and combined",
                                     "spectra_plots": {
                                         "type": "array",
                                         "help": "multiple files are produced for spectra (ln, fl and st)."
@@ -93,17 +93,27 @@
                                 "complete": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "help": "Percentage of complete busco genes"
+                                    "help": "Number/Percentage of complete busco genes"
                                 },
                                 "single": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "help": "Percentage of single busco genes"
+                                    "help": "Number/Percentage of single busco genes"
                                 },
                                 "duplicate": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "help": "Percentage of duplicate busco genes"
+                                    "help": "Number/Percentage of duplicate busco genes"
+                                },
+                                "fragmented": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "help": "Number/Percentage of fragmented busco genes"
+                                },
+                                "missing": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "help": "Number/Percentage of missing busco genes"
                                 }
                             }
                         }

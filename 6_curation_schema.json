@@ -10,7 +10,7 @@
                     "properties": {
                         "comparator_reference": {
                             "type": "string",
-                            "help": "Name of comparator assembly"
+                            "help": "Name of comparator assembly TB: Better to have a list of GCA accessions"
                         },
                         "source": {
                             "type": "string",
@@ -57,7 +57,7 @@
                         },
                         "change_in_n50": {
                             "type": "number",
-                            "help": "Change in the N50 metric, recorded in base-pairs"
+                            "help": "Change in the scaffold N50 metric, recorded in base-pairs"
                         }
                     }
                 },
