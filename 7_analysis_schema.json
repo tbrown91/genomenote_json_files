@@ -1,0 +1,115 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "analysis": {
+            "type": "object",
+            "properties": {
+                "GAP_analysis_data": {
+                    "readmapping": {
+                        "datablob_id": "string",
+                        "aligned_reads": {
+                            "type": "array",
+                            "properties": {
+                                "data_type": "string",
+                                "file_path": "string",
+                                "weblink": "string"
+                            }
+                        },
+                        "sequence_composition": {}
+                    },
+                    "blobtoolkit": {
+                        "type": "object",
+                        "properties": {
+                            "blobdir": "string",
+                            "snail_plot": "string",
+                            "cumulative_plot": "string",
+                            "grid_plot": "string",
+                            "assembly_id": "string"
+                        }
+                    },
+                    "ancestral_linkage_group": {
+                        "assembly_id": "string",
+                        "lineage_odb": "string",
+                        "ancestral_linkage_tsv": "string",
+                        "ancestral_linkage_plot": "string"
+                    },
+                    "pretext": {
+                        "assembly_id": "string",
+                        "haplotype": "string",
+                        "file_path": "string",
+                        "weblink": "string"
+                    },
+                    "higlass": {
+                        "assembly_id": "string",
+                        "haplotype": "string",
+                        "mcool_file": "string",
+                        "weblink": "string"
+                    },
+                    "merqury": {
+                        "type": "array",
+                        "properties": {
+                            "assembly_id": "string",
+                            "haplotype": {
+                                "type": "string",
+                                "help": "Tool can be run once per haplotype + for a combined assembly. Every time, there will be overall AND per hap results.",
+                                "reads_used": {
+                                    "type": "array",
+                                    "properties": {
+                                        "file_path": "string"
+                                    }
+                                }
+                            },
+                            "kmer_length": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "help": "Length of the kmer used for analysis"
+                            },
+                            "statistics": {
+                                "type": "object",
+                                "properties": {
+                                    "qv_files": {
+                                        "type": "array",
+                                        "help": "All *.qv files"
+                                    },
+                                    "completeness_stats": "string",
+                                    "spectra_plots": {
+                                        "type": "array",
+                                        "help": "multiple files are produced for spectra (ln, fl and st)."
+                                    },
+                                    "only_bed": {
+                                        "type": "string",
+                                        "help": "The *only.bed file"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "busco": {
+                        "type": "array",
+                        "properties": {
+                            "lineages": {
+                                "odb_name": "string",
+                                "complete": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "help": "Percentage of complete busco genes"
+                                },
+                                "single": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "help": "Percentage of single busco genes"
+                                },
+                                "duplicate": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "help": "Percentage of duplicate busco genes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,279 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "assembly_stats": {
+            "type": "object",
+            "properties": {
+                "assembly_information": {
+                    "type": "object",
+                    "properties": {
+                        "id": "string",
+                        "assembly_level": {
+                            "enum": [
+                                "contig",
+                                "scaffold",
+                                "chromosome"
+                            ]
+                        },
+                        "assembly_accession": {
+                            "type": "string"
+                        },
+                        "assembly_id": {
+                            "type": "string"
+                        },
+                        "no_of_contigs": {
+                            "type": "integer"
+                        },
+                        "contig_n50_length": {
+                            "type": "number"
+                        },
+                        "no_of_scaffolds": {
+                            "type": "integer"
+                        },
+                        "scaffold_n50_length": {
+                            "type": "number"
+                        },
+                        "longest_scaffold_length": {
+                            "type": "number"
+                        },
+                        "genome_size": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "assembly_analysis": {
+            "type": "object",
+            "properties": {
+                "ncbi_taxonomy_id": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "ploidy": {
+                    "method": {
+                        "type": "object",
+                        "properties": {
+                            "software": "string",
+                            "doi": "string"
+                        }
+                    },
+                    "count": {
+                        "type": "number",
+                        "help": "Ploidy count"
+                    },
+                    "english_count": {
+                        "type": "string",
+                        "help": "Whether the count equates to Diploid, Triploid, e.t.c"
+                    }
+                },
+                "kmer_analysis": {
+                    "type": "array",
+                    "properties": {
+                        "name": {
+                            "enum": [
+                                "genomescope",
+                                "smudgeplot"
+                            ]
+                        },
+                        "path": {
+                            "type": "string",
+                            "help": "Path to directory containing results"
+                        },
+                        "est_size_bp": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Estimated length of assembly from analysis, recorded in base-pairs"
+                        }
+                    }
+                },
+                "merqury": {
+                    "type": "array",
+                    "properties": {
+                        "assembly_id": "string",
+                        "haplotype": {
+                            "type": "string",
+                            "help": "Tool can be run once per haplotype + for a combined assembly. Every time, there will be overall AND per hap results.",
+                            "reads_used": {
+                                "type": "array",
+                                "properties": {
+                                    "file_path": "string"
+                                }
+                            }
+                        },
+                        "kmer_length": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "help": "Length of the kmer used for analysis"
+                        },
+                        "statistics": {
+                            "type": "object",
+                            "properties": {
+                                "qv_files": {
+                                    "type": "array",
+                                    "help": "All *.qv files"
+                                },
+                                "completeness_stats": "string",
+                                "spectra_plots": {
+                                    "type": "array",
+                                    "help": "multiple files are produced for spectra (ln, fl and st)."
+                                },
+                                "only_bed": {
+                                    "type": "string",
+                                    "help": "The *only.bed file"
+                                }
+                            }
+                        }
+                    }
+                },
+                "busco": {
+                    "type": "array",
+                    "properties": {
+                        "lineages": {
+                            "odb_name": "string",
+                            "complete": {
+                                "type": "number",
+                                "minimum": 0,
+                                "help": "Percentage of complete busco genes"
+                            },
+                            "single": {
+                                "type": "number",
+                                "minimum": 0,
+                                "help": "Percentage of single busco genes"
+                            },
+                            "duplicate": {
+                                "type": "number",
+                                "minimum": 0,
+                                "help": "Percentage of duplicate busco genes"
+                            }
+                        }
+                    },
+                    "raw_data_object": {
+                        "type": "array",
+                        "help": "Linked to raw_data in sample_prep_schema",
+                        "properties": {
+                            "accession": "string",
+                            "data_type": "string"
+                        }
+                    },
+                    "chromosome_tables": {
+                        "help": "Chromosomal Pseudomolecules",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "insdc_accession": {
+                                    "type": "string"
+                                },
+                                "chromosome": {
+                                    "type": "string"
+                                },
+                                "size_mb": {
+                                    "type": "number"
+                                },
+                                "gc_percent": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "samples": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "biosample_id": {
+                                    "help": "Data taken from ENA",
+                                    "type": "string"
+                                },
+                                "collector_institute": {
+                                    "type": "string"
+                                },
+                                "gal": {
+                                    "type": "string"
+                                },
+                                "collection_date": {
+                                    "type": "string"
+                                },
+                                "collection_location": {
+                                    "type": "string"
+                                },
+                                "sample_derived_from": {
+                                    "type": "string"
+                                },
+                                "sex": {
+                                    "type": "string"
+                                },
+                                "lifestage": {
+                                    "type": "string"
+                                },
+                                "tolid": {
+                                    "type": "string"
+                                },
+                                "specimen_images": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "image": {
+                                                "type": "string"
+                                            },
+                                            "link": {
+                                                "type": "string"
+                                            },
+                                            "caption": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "ncbi_taxonomy_id"
+                            ]
+                        }
+                    },
+                    "taxonomy": {
+                        "help": "Was species",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "tax_authority": "string",
+                                "ncbi_taxonomy_id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "lineage": {
+                                    "type": "string"
+                                },
+                                "class": {
+                                    "type": "string"
+                                },
+                                "family": {
+                                    "type": "string"
+                                },
+                                "order": {
+                                    "type": "string"
+                                },
+                                "phylum": {
+                                    "type": "string"
+                                },
+                                "common_name": {
+                                    "type": "string"
+                                },
+                                "species": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "ncbi_taxonomy_id"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

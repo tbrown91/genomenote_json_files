@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "help": "Likely for V2 in the future",
+    "properties": {
+        "annotation": {
+            "type": "array",
+            "help": "Annotation method performed and output",
+            "properties": {
+                "accession": "string",
+                "data_used": {
+                    "type": "array",
+                    "properties": {
+                        "accession": "string"
+                    }
+                },
+                "method": "string",
+                "statistics": {
+                    "type": "object",
+                    "help": "Key statistics of annotation outcomes I DONT KNOW WHAT SHOULD BE HERE",
+                    "properties": {
+                        "": "",
+                        "": "",
+                        "": ""
+                    }
+                }
+            }
+        }
+    }
+}

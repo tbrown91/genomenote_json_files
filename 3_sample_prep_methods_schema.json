@@ -1,0 +1,117 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "methods": {
+            "type": "array",
+            "properties": {
+                "sample_acquisition": {
+                    "type": "object",
+                    "properties": {
+                        "acquisition_protocol": "string",
+                        "total_sample_mass_grams": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Total mass of sample taken"
+                        },
+                        "nucleic_acid_extraction": {
+                            "type": "array",
+                            "properties": {
+                                "protocol": {
+                                    "type": "object",
+                                    "help": "Protocol followed by the Laboratory team for nucleic acid extraction",
+                                    "properties": {
+                                        "name": "string",
+                                        "method": "string",
+                                        "doi": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "raw_data": {
+            "type": "array",
+            "properties": {
+                "sample_derived_from": "string",
+                "data_type": {
+                    "enum": [
+                        "hic_arima2",
+                        "ont",
+                        "longread_pacbio",
+                        "hic_cifi",
+                        "10x_chromium",
+                        "bionano"
+                    ],
+                    "help": "Data type of the data"
+                },
+                "accession": "string",
+                "statistics": {
+                    "type": "object",
+                    "properties": {
+                        "reads_in_millions": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Total number of reads in millions"
+                        },
+                        "total_yield_mbp": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Total Yield of data in Mega Base Pairs"
+                        }
+                    }
+                },
+                "technology": {
+                    "type": "object",
+                    "properties": {
+                        "techonology": {
+                            "enum": [
+                                "HIFI-CiFi",
+                                "HIFI-Arima2",
+                                "ONT",
+                                "PacBio",
+                                "10x Chromium",
+                                "Bionano"
+                            ],
+                            "help": "Technology used for sequencing"
+                        },
+                        "instrument": {
+                            "type": "string",
+                            "help": "Instrument/Platform that sequencing took place on"
+                        }
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "help": "TEMP_TYPE - Links to one of methods.nucleic_acid_extraction"
+                    }
+                }
+            },
+            "raw_data_statistics": {
+                "type": "object",
+                "propteries": {
+                    "cumulative_stats": {
+                        "type": "array",
+                        "properties": {
+                            "data_type": {
+                                "type": "string",
+                                "help": "Per datatype in raw_data.data_type"
+                            },
+                            "reads_in_millions": {
+                                "type": "number",
+                                "minimum": 0,
+                                "help": "Total number of reads in millions"
+                            },
+                            "total_yield_mbp": {
+                                "type": "number",
+                                "minimum": 0,
+                                "help": "Total Yield of data in Mega Base Pairs"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

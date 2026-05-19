@@ -1,0 +1,151 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "doi": {
+                    "type": "string"
+                },
+                "data_availability": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "abstract": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "background": {
+                    "type": "string"
+                },
+                "bioproject": {
+                    "type": "string"
+                },
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "surname": {
+                                "type": "string"
+                            },
+                            "given_names": {
+                                "type": "string"
+                            },
+                            "roles": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "orcid": {
+                                "type": "string"
+                            },
+                            "corresponding": {
+                                "type": "boolean"
+                            },
+                            "affiliations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "affiliations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "affiliation": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "doi",
+                "title"
+            ]
+        },
+        "software_tools": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "software_tool": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "publication_metadata": {
+            "type": "object",
+            "properties": {
+                "funding": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "source": {
+                                "type": "string"
+                            },
+                            "award_ids": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "funding_statement": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "e_location_id": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string"
+                },
+                "ebp_analysis_metrics": {
+                    "type": "array"
+                },
+                "submission_date": {
+                    "type": "string"
+                },
+                "publication_date": {
+                    "type": "string"
+                },
+                "acknowledgements": {
+                    "type": "string"
+                },
+                "ethics_and_consent": {
+                    "type": "object"
+                },
+                "competing_interests": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

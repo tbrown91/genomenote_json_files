@@ -1,0 +1,92 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "curation": {
+            "type": "object",
+            "properties": {
+                "sex_annotation": {
+                    "type": "object",
+                    "properties": {
+                        "comparator_reference": {
+                            "type": "string",
+                            "help": "Name of comparator assembly"
+                        },
+                        "source": {
+                            "type": "string",
+                            "help": "Web-address that the assembly was sourced from"
+                        },
+                        "identified_sex_system": {
+                            "type": "string",
+                            "help": "Sex system identified in the assembly"
+                        },
+                        "specific_sex_chromosome": {
+                            "type": "string",
+                            "help": "What specific sex chromosomes were idendified in this assembly (What was it's sex?)"
+                        }
+                    }
+                },
+                "curator_note": {
+                    "type": "object",
+                    "properties": {
+                        "assembly_text": "string",
+                        "curators_notes": "string"
+                    }
+                },
+                "curation_statistics": {
+                    "type": "object",
+                    "properties": {
+                        "manual_interventions_per_gb": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Manual interventions in the assembly, normalised per Giga-base"
+                        },
+                        "breaks": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Breaks performed across assembly"
+                        },
+                        "joins": {
+                            "type": "number",
+                            "minimum": 0,
+                            "help": "Joins performed across assembly"
+                        },
+                        "change_in_length_bp": {
+                            "type": "number",
+                            "help": "Change in the length of the assembly, can be positive or negative. Recorded in base pairs."
+                        },
+                        "change_in_n50": {
+                            "type": "number",
+                            "help": "Change in the N50 metric, recorded in base-pairs"
+                        }
+                    }
+                },
+                "contaminants_removed": {
+                    "type": "object",
+                    "properties": {
+                        "scaffolds_removed": {
+                            "type": "number",
+                            "help": "Number of scaffolds marked as contaminant and removed from the assembly"
+                        },
+                        "percentage_scaffolds_removed": {
+                            "type": "number",
+                            "help": "Percentage of scaffolds marked as contaminant and removed from the assembly"
+                        },
+                        "largest_scaffold_removed": {
+                            "type": "number",
+                            "help": "Length of the largest scaffold removed from the assembly"
+                        },
+                        "percentage_largest_scaffold_removed": {
+                            "type": "number",
+                            "help": "Percentage of the assembly that the largest scaffold removed accounted for"
+                        },
+                        "total_length_of_scaffolds_removed": {
+                            "type": "number",
+                            "help": "Total length of scaffolds removed, recorded in base-pairs"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
