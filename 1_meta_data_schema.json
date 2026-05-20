@@ -29,8 +29,43 @@
                 "bioproject": {
                     "type": "string"
                 },
+                "child_bioprojects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "help": "Child BioProjects associated with the main BioProject; used to ID sequencing run metadata."
+                },
+                "parent_projects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "accession": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "project_name": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "help": "Parent BioProjects associated with the main BioProject. Used to derive formatted_parent_projects."
+                },
+                "formatted_parent_projects": {
+                    "type": "string",
+                    "help": "Publication-ready parent project string derived from parent_projects by data_note. Describes, e.g. Project Psyche."
+                },
                 "authors": {
                     "type": "array",
+                    "source": [
+                        "AuthorsDB"
+                    ],
                     "items": {
                         "type": "object",
                         "properties": {
@@ -81,25 +116,11 @@
                 "title"
             ]
         },
-        "software_tools": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "software_tool": {
-                        "type": "string"
-                    },
-                    "version": {
-                        "type": "string"
-                    },
-                    "source": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
         "publication_metadata": {
             "type": "object",
+            "source": [
+                "AuthorsDB"
+            ],
             "properties": {
                 "funding": {
                     "type": "array",
@@ -121,20 +142,22 @@
                         }
                     }
                 },
-                "e_location_id": {
-                    "type": "string"
+                "journal_data": {
+                    "type": "array",
+                    "properties": {
+                        "journal_name": "string",
+                        "e_location_id": "string",
+                        "license": "string",
+                        "submission_date": "string",
+                        "publication_date": "string"
+                    }
                 },
-                "license": {
-                    "type": "string"
+                "genome_note_data": {
+                    "submission_date": "string",
+                    "publication_date": "string"
                 },
                 "ebp_analysis_metrics": {
                     "type": "array"
-                },
-                "submission_date": {
-                    "type": "string"
-                },
-                "publication_date": {
-                    "type": "string"
                 },
                 "acknowledgements": {
                     "type": "string"

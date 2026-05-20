@@ -6,12 +6,32 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "required": [
+                    "id",
+                    "citation_key",
+                    "publication_type"
+                ],
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "help": "Name of reference material"
+                    },
+                    "citation_key": {
+                        "type": "string",
+                        "help": "Stable key used for in-text citations and bibliography matching. This should match the BibTeX key or CSL id used by Pandoc or by the portal citation processor."
                     },
                     "publication_type": {
-                        "type": "string"
+                        "enum": [
+                            "article",
+                            "preprint",
+                            "book/chapter",
+                            "dataset",
+                            "report",
+                            "webpage",
+                            "protocol",
+                            "conference_proceedings",
+                            "software/workflow"
+                        ]
                     },
                     "authors": {
                         "type": "array",
@@ -27,38 +47,58 @@
                             }
                         }
                     },
-                    "article_title": {
-                        "type": "string"
-                    },
-                    "source": {
-                        "type": "string"
-                    },
-                    "year": {
-                        "type": "string"
-                    },
-                    "volume": {
-                        "type": "string"
-                    },
-                    "issue": {
-                        "type": "string"
-                    },
-                    "first_page": {
-                        "type": "string"
-                    },
-                    "last_page": {
-                        "type": "string"
-                    },
-                    "doi": {
-                        "type": "string"
-                    },
-                    "pmid": {
-                        "type": "string"
-                    },
-                    "pmcid": {
-                        "type": "string"
+                    "payload": {
+                        "type": "object"
                     }
-                }
+                },
+                "anyOf": [
+                    {
+                        "properties": {
+                            "publication_type": {
+                                "const": "article"
+                            }
+                        }
+                    }
+                ]
             }
         }
     }
+},
+"article_title": {
+    "type": "string"
+},
+"source": {
+    "type": "string"
+},
+"year": {
+    "type": "string"
+},
+"volume": {
+    "type": "string"
+},
+"issue": {
+    "type": "string"
+},
+"first_page": {
+    "type": "string"
+},
+"last_page": {
+    "type": "string"
+},
+"doi": {
+    "type": "string"
+},
+"url": {
+    "type": "string"
+},
+"pmid": {
+    "type": "string"
+},
+"pmcid": {
+    "type": "string"
+}
+}
+}
+}
+}
 }
