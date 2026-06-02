@@ -14,7 +14,8 @@
                     "title",
                     "citation_key",
                     "publication_type",
-                    "authors"
+                    "authors",
+                    "entry_type"
                 ],
                 "properties": {
                     "title": {
@@ -151,29 +152,50 @@
                             }
                         }
                     },
-                    "data_accession": {
-                        "type": "object",
-                        "help": "Field for the source of genome reference data if applicable",
-                        "properties": {
-                            "source": {
-                                "enum": [
-                                    "GenBank",
-                                    "SRA",
-                                    "BioSamples",
-                                    "Ensembl",
-                                    "Other"
-                                ],
-                                "help": "Source of genome reference data"
-                            },
-                            "accession": {
-                                "type": "string",
-                                "help": "Accession number of the genome reference data"
-                            }
-                        }
-                    },
                     "formatted_bibtex": {
                         "type": "string",
                         "help": "Formatted BibTeX entry for the reference"
+                    }
+                },
+                "if": {
+                    "properties": {
+                        "entry_type": {
+                            "const": "dataset"
+                        }
+                    }
+                },
+                "then": {
+                    "properties": {
+                        "data_accession": {
+                            "type": "object",
+                            "help": "Field for the source of genome reference data if applicable",
+                            "properties": {
+                                "source": {
+                                    "enum": [
+                                        "GenBank",
+                                        "SRA",
+                                        "BioSamples",
+                                        "Ensembl",
+                                        "Other"
+                                    ],
+                                    "help": "Source of genome reference data"
+                                },
+                                "accession": {
+                                    "type": "string",
+                                    "help": "Accession number of the genome reference data"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "data_accession"
+                    ]
+                },
+                "else": {
+                    "not": {
+                        "required": [
+                            "data_accession"
+                        ]
                     }
                 }
             }
