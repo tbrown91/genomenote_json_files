@@ -5,6 +5,9 @@
         "metadata": {
             "type": "object",
             "properties": {
+                "template_version": {
+                    "type": "string"
+                },
                 "doi": {
                     "type": "string"
                 },

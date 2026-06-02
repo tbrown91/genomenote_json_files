@@ -17,9 +17,17 @@
                             "help": "Name of assembler"
                         },
                         "role": {
-                            "enum": [
-                                "assembler"
-                            ]
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "assembler",
+                                    "annotation",
+                                    "other"
+                                ]
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
                         },
                         "affiliation": {
                             "type": "string",

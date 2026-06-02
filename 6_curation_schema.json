@@ -13,9 +13,16 @@
                             "help": "Name of assembler"
                         },
                         "role": {
-                            "enum": [
-                                "assembler"
-                            ]
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "curator",
+                                    "other"
+                                ]
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
                         },
                         "affiliation": {
                             "type": "string",
@@ -97,6 +104,9 @@
                             "help": "Curated sex chromosome complement, for example XX, XY, ZZ, ZW or Z0."
                         },
                         "identified_sex_chromosomes": {
+                            "source": [
+                                "Tree of Sex Database (in the future)"
+                            ],
                             "type": "string",
                             "help": "Sex chromosome labels identified in the assembly and reported in the genome note, for example X, X and Y, W and Z, or Z."
                         },
