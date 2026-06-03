@@ -14,7 +14,8 @@
                 },
                 "doi": {
                     "type": "string",
-                    pattern <--
+                    "help": "DOI, without the https://doi.org/ prefix, example is: 10.1080/10509585.2015.1092083",
+                    "pattern": "^10\\.\\d{4,9}/\\S+$"
                 },
                 "data_availability": {
                     "type": "string"
@@ -193,13 +194,16 @@
                     "publication_date": "string"
                 },
                 "ebp_analysis_metrics": {
-                    "type": "array" <-- already exists somewhere else
+                    "type": "array" <-- already exists in analysis, do we need it in two places?
                 },
                 "acknowledgements": {
                     "type": "string"
                 },
                 "ethics_and_consent": {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                        <-- What should be here
+                    }
                 },
                 "competing_interests": {
                     "type": "string"
