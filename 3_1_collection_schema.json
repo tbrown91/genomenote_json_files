@@ -57,7 +57,10 @@
         "collection_data": {
             "type": "array",
             "properties": {
-                <-- "Museum Voucher ID",
+                "museum_voucher_id": {
+                    "type": "string",
+                    "help": "Museum Voucher ID"
+                },
                 "sample_id": "string",
                 "method": {
                     "type": "string",
