@@ -176,8 +176,9 @@
                         }
                     }
                 },
-                "contaminants_removed": { <-- Question as to whether to keep or not
+                "contaminants_removed": {
                     "type": "object",
+                    "help": "Generalised statistics about the contaminats removed, do we need to include a file for specific data?",
                     "properties": {
                         "scaffolds_removed": {
                             "type": "number",
