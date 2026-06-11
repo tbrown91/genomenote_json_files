@@ -37,7 +37,8 @@
                     "type": "string"
                 },
                 "bioproject": {
-                    "type": "string"
+                    "type": "string",
+		    "help": "Umbrella BioProject in INSDC containing all sequencing data, genome assembly/assemblies and links to relevant BioSample information."
                 },
                 "child_bioprojects": {
                     "type": "array",
@@ -65,7 +66,7 @@
                             }
                         }
                     },
-                    "help": "Parent BioProjects associated with the main BioProject. Used to derive formatted_parent_projects."
+                    "help": "Parent (i.e. Project-level) BioProjects associated with the main BioProject. Used to derive formatted_parent_projects."
                 },
                 "formatted_parent_projects": {
                     "type": "string",
@@ -116,7 +117,8 @@
                                     ]
                                 },
                                 "minItems": 1,
-                                "uniqueItems": true
+                                "uniqueItems": true,
+				"help": "Used to assign credit of author to the outputs in the Genome Note - currently also repeated in each section"
                             },
                             "orcid": {
                                 "type": "string"
@@ -128,7 +130,8 @@
                                 "type": "array",
                                 "items": {
                                     "type": "string"
-                                }
+                                },
+				"help": "Array of affiliations for each author should be a list of IDs, determined by the affiliation array below"
                             }
                         }
                     }
@@ -150,7 +153,11 @@
             },
             "required": [
                 "doi",
-                "title"
+                "title",
+		"bioproject",
+		"authors",
+		"affiliations",
+		"data_availability"
             ]
         },
         "publication_metadata": {
@@ -187,28 +194,35 @@
                         "license": "string",
                         "submission_date": "string",
                         "publication_date": "string"
-                    }
+                    },
+		    "help": "If a genome note already exists for this assembly or set of assemblies in another publication platform/journal, place a link here"
                 },
                 "genome_note_data": {
                     "submission_date": "string",
                     "publication_date": "string"
                 },
                 "ebp_analysis_metrics": {
-                    "type": "array" <-- already exists in analysis, do we need it in two places?
+                    "type": "array" <-- already exists in analysis, do we need it in two places? TB: I think it makes sense in the metadata, yes
                 },
                 "acknowledgements": {
                     "type": "string"
                 },
                 "ethics_and_consent": {
-                    "type": "object",
-                    "properties": {
-                        <-- What should be here
-                    }
+                    "type": "string",
+		    "help": "Where necessary, please detail any ethical or legal permits that were acquired in order to carry out the steps to generate this genome report. If not applicaable, please put N/A"
                 },
                 "competing_interests": {
-                    "type": "string"
+                    "type": "string",
+		    "help": "Please details any conflicting interests. If not applicable, please put N/A"
                 }
-            }
+            },
+            "required": [
+                "genome_note_data",
+                "ebp_analysis_metrics",
+		"ethics_and_consent",
+		"competeing_interests",
+		"genome_note_data"
+            ]
         }
     }
 }
