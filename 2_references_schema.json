@@ -19,7 +19,9 @@
                     "citation_key",
                     "publication_type",
                     "authors",
-                    "entry_type"
+                    "entry_type",
+		    "accession",
+		    "accession_type"
                 ],
                 "properties": {
                     "title": {
@@ -115,9 +117,6 @@
                             }
                         ]
                     },
-                    "url": {
-                        "type": "string"
-                    },
                     "pages": {
                         "type": "object",
                         "help": "Pages of the reference if applicable, output would be as {start}-{end}",
@@ -136,7 +135,13 @@
                     "journal": {
                         "type": "string"
                     },
-                    "year": {
+		    "year": {
+			    "type": "string"
+		    },
+                    "issue": {
+                        "type": "string"
+                    },
+                    "source": {//Not sure what this means
                         "type": "string"
                     },
                     "authors": {
