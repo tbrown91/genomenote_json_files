@@ -97,21 +97,10 @@
                     "type": "string",
                     "help": "Name of the collector/identifier of sample"
                 },
-                "role": {
-                    "enum": [
-                        "collector",
-                        "identifier",
-                        "other"
-                    ]
-                },
-                "affiliation": {
+                "ID": {
                     "type": "string",
-                    "help": "Affiliation of person"
-                },
-                "gal": {
-                    "type": "string",
-                    "help": "Genome Acquisition Lab."
-                } <-- move into the meta data with if else on collector for gal info - Source of author will change depending on role too.
+                    "help": "Identifier from the author list"
+                }
             }
         },
         "specimen_images": {
